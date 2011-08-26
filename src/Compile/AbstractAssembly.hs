@@ -1,13 +1,15 @@
 module Compile.AbstractAssembly where
 
-data AAsm = AAsm {aAssign :: AVal
+import Compile.Ops
+
+data AAsm = AAsm {aAssign :: [AVal]
                  ,aOp     :: Op
                  ,aArgs   :: [AVal]
                  }
           | ACtrl COp AVal
           | ALabel String
-          | AComment String
+          | AComment String deriving Show
 
 data AVal = AReg Int
           | ATemp Int
-          | AImm Int
+          | AImm Int deriving Show
