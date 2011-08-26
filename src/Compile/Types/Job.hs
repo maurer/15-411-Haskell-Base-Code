@@ -1,4 +1,4 @@
-module Compile.Job where
+module Compile.Types.Job where
 
 data Job = Job
   { jobOut       :: FilePath

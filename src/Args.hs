@@ -1,6 +1,6 @@
 module Args (parseArgs, JobParseError(..)) where
 
-import Compile.Job
+import Compile.Types.Job
 import System.Console.GetOpt
 import Data.Tuple
 import Data.Maybe

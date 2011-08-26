@@ -1,6 +1,6 @@
-module Compile.AbstractAssembly where
+module Compile.Types.AbstractAssembly where
 
-import Compile.Ops
+import Compile.Types.Ops
 
 data AAsm = AAsm {aAssign :: [AVal]
                  ,aOp     :: Op
