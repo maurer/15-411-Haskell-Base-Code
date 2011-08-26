@@ -1,11 +1,7 @@
-module Compile.Types (
-module Compile.Types.Job,
-module Compile.Types.AbstractAssembly,
-module Compile.Types.Ops,
-module Compile.Types.AST
-)where
+module Compile.Types (module X) where
+import Compile.Types.Job as X
+import Compile.Types.AbstractAssembly as X
+import Compile.Types.Ops as X
+import Compile.Types.AST as X
 
-import Compile.Types.Job
-import Compile.Types.AbstractAssembly
-import Compile.Types.Ops
-import Compile.Types.AST
+

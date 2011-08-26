@@ -15,8 +15,7 @@ import Compile.Types
 import Compile.Parse
 import Compile.CodeGen
 
---TODO make this actually properly catch errors like spoon
-liftIOE = liftIO
+import LiftIOE
 
 writer file obj = liftIOE $ writeFile file $ show obj
 

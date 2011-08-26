@@ -13,4 +13,5 @@ Executable c0c
   Main-Is:        c0c.hs
   Hs-Source-Dirs: src
   Build-Depends:  base, filepath, mtl, process, bytestring, syb
-  Extensions:     DeriveDataTypeable
+  Extensions:     DeriveDataTypeable, RankNTypes, FlexibleInstances,
+                  MultiParamTypeClasses
