@@ -1,4 +1,4 @@
-module Args (parseArgs, JobParseError(..)) where
+module Args (parseArgs, JobParseError(..), usage) where
 
 import Compile.Types.Job
 import System.Console.GetOpt
@@ -9,6 +9,9 @@ import System.FilePath
 data JobParseError = NoSources
                    | TooManySources
                    | GetOptError [String] deriving Show
+
+usage :: String -> String
+usage p = usageInfo p argTable
 
 parseArgs :: Job -> [String] -> Either JobParseError Job
 parseArgs initialJob args = let

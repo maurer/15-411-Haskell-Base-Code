@@ -14,6 +14,7 @@ main = do
   args <- getArgs
   case parseArgs (getDefaults prog) args of
     Left  err -> do hPrint stderr err
+                    hPutStr stderr (usage prog)
                     exitFailure
     Right job -> compile job
   exitSuccess

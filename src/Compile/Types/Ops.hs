@@ -1,16 +1,19 @@
 module Compile.Types.Ops where
 
-data Op = Times
-        | Plus
-        | Minus
+data Op = Mul
+        | Add
+        | Sub
         | Div
-        | Negate
-        | BNot
-        | BAnd
-        | BOr
-        | BXor
-        | Cmp
-        | Test deriving Show
+        | Neg
+        | Mod
+
+instance Show Op where
+  show Mul = "*"
+  show Add = "+"
+  show Sub = "-"
+  show Div = "/"
+  show Neg = "-"
+  show Mod = "%"
 
 data COp = Call
          | Ret

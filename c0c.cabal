@@ -14,4 +14,4 @@ Executable c0c
   Hs-Source-Dirs: src
   Build-Depends:  base, filepath, mtl, process, bytestring, syb
   Extensions:     DeriveDataTypeable, RankNTypes, FlexibleInstances,
-                  MultiParamTypeClasses
+                  MultiParamTypeClasses, FlexibleContexts
