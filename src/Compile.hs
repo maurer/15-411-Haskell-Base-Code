@@ -13,6 +13,7 @@ import Control.Monad.Error
 
 import Compile.Types
 import Compile.Parse
+import Compile.CheckAST
 import Compile.CodeGen
 
 import LiftIOE
@@ -23,9 +24,10 @@ compile :: Job -> IO ()
 compile job = do
   res <- runErrorT $ do
     ast <- parseAST $ jobSource job
+    liftEIO $ checkAST ast
     if jobOutFormat job == C0
       then writer (jobOut job) ast
-      else do asm <- return $ codeGen ast
+      else do asm <- liftEIO $ codeGen ast
               if jobOutFormat job == Asm
                  then writer (jobOut job) asm
                  else do writer asmFile ast

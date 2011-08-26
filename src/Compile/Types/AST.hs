@@ -5,7 +5,7 @@ import Text.ParserCombinators.Parsec.Pos (SourcePos)
 import Compile.Types.Ops
 
 data AST = Block [Decl] [Stmt] SourcePos
-data Decl = Decl String SourcePos
+data Decl = Decl {declName :: String, declPos :: SourcePos}
 data Stmt = Asgn String AsgnOp Expr SourcePos 
           | Return Expr SourcePos
 data Expr = ExpInt Integer SourcePos
@@ -20,6 +20,7 @@ type AsgnOp = Maybe Op
 -- This is a quick and dirty pretty printer.
 -- Once that is written, you may find it helpful for debugging to switch
 -- back to the deriving Show instances.
+
 instance Show AST where
   show (Block decls stmts _) =
     "int main () {\n" ++ (unlines $ (map show decls)

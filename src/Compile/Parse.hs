@@ -37,7 +37,7 @@ astParser = do
 
 decl :: C0Parser Decl
 decl = do
-   pos <- getPosition
+   pos   <- getPosition
    reserved "int"
    ident <- identifier
    semi
