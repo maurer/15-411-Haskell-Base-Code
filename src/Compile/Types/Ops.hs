@@ -6,6 +6,7 @@ data Op = Mul
         | Div
         | Neg
         | Mod
+        | Nop
 
 instance Show Op where
   show Mul = "*"
