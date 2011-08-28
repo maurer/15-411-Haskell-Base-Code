@@ -27,12 +27,12 @@ compile job = do
     liftEIO $ checkAST ast
     if jobOutFormat job == C0
       then writer (jobOut job) ast
-      else do asm <- liftEIO $ codeGen ast
-              if jobOutFormat job == Asm
-                 then writer (jobOut job) asm
-                 else do writer asmFile ast
-                         let o = if jobOutFormat job == Obj then "-c" else ""
-                         gcc o asmFile (jobOut job)
+      else let asm = codeGen ast in
+             if jobOutFormat job == Asm
+                then writer (jobOut job) asm
+                else do writer asmFile ast
+                        let o = if jobOutFormat job == Obj then "-c" else ""
+                        gcc o asmFile (jobOut job)
   case res of
     Left msg -> error msg
     Right () -> return ()

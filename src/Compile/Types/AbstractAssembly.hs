@@ -7,7 +7,6 @@ data AAsm = AAsm {aAssign :: [AVal]
                  ,aArgs   :: [AVal]
                  }
           | ACtrl COp AVal
-          | ALabel String
           | AComment String deriving Show
 
 data AVal = AReg Int

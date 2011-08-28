@@ -15,12 +15,4 @@ instance Show Op where
   show Neg = "-"
   show Mod = "%"
 
-data COp = Call
-         | Ret
-         | Jump Cond deriving Show
-
-data Cond = Zero
-          | Parity
-          | Sign
-          | Overflow
-          | Carry deriving Show
+data COp = Ret deriving Show
